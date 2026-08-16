@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-body text-ink bg-sand;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-ink text-sand px-6 py-3 font-semibold text-sm transition-all duration-300 hover:bg-ink-soft hover:shadow-soft hover:-translate-y-0.5;
+  }
+
+  .btn-accent {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-taupe text-white px-6 py-3 font-semibold text-sm transition-all duration-300 hover:bg-taupe-soft hover:shadow-soft hover:-translate-y-0.5;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-stone/30 bg-transparent text-ink px-6 py-3 font-semibold text-sm transition-all duration-300 hover:border-ink hover:bg-white;
+  }
+
+  .btn-light {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-sand text-ink px-6 py-3 font-semibold text-sm transition-all duration-300 hover:bg-white hover:shadow-soft hover:-translate-y-0.5;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl shadow-card border border-sand-deep/60 p-6;
+  }
+
+  .input-field {
+    @apply w-full p-3 bg-sand-warm/50 border border-stone/20 rounded-xl text-sm text-ink placeholder:text-stone-warm focus:outline-none focus:border-taupe focus:ring-2 focus:ring-taupe/20 transition-all duration-200;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-wider;
+  }
+
+  .section-title {
+    @apply font-display text-3xl md:text-4xl lg:text-5xl font-bold text-ink leading-tight;
+  }
+}
+
+@keyframes shake {
+  0%, 100% { transform: rotate(0); }
+  25% { transform: rotate(5deg); }
+  50% { transform: rotate(-5deg); }
+  75% { transform: rotate(5deg); }
+}
+
+.hover\:animate-shake:hover {
+  animation: shake 0.3s ease-in-out;
+}

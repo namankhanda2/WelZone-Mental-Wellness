@@ -1,0 +1,19 @@
+# macOS
+.DS_Store
+
+# IDE
+.idea/
+*.iml
+
+# Node / frontend
+node_modules/
+dist/
+project_frontend/package-lock 2.json
+
+# Java / Maven backend
+WelZoneApp/target/
+*.class
+
+# Logs
+*.log
+nohup.out
