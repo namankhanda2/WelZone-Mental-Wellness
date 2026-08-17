@@ -3,6 +3,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import Header from "./Header";
 import { FaComments, FaStar, FaCalendarAlt } from "react-icons/fa";
+import API_URL from "../config";
 
 export default function FeedbackPage() {
   const [feedbacks, setFeedbacks] = useState([]);
@@ -22,7 +23,7 @@ export default function FeedbackPage() {
     const fetchFeedbacks = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8080/api/feedback/${sessionId}`
+          `${API_URL}/api/feedback/${sessionId}`
         );
         const data = response.data;
         data.reverse();

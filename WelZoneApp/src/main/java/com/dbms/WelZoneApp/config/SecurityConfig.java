@@ -72,8 +72,9 @@ public class SecurityConfig {
 
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
+        String origins = System.getenv().getOrDefault("CORS_ALLOWED_ORIGINS", "http://localhost:*");
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOriginPatterns(List.of("http://localhost:*")); // Frontend URL
+        configuration.setAllowedOriginPatterns(List.of(origins.split(","))); // Frontend URL
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setAllowCredentials(true); // If you need to send cookies or authentication headers

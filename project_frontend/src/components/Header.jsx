@@ -2,6 +2,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { FaHeart, FaSignOutAlt, FaUserCircle } from "react-icons/fa";
+import API_URL from "../config";
 
 const Header = () => {
   const [username, setUsername] = useState("");
@@ -21,7 +22,7 @@ const Header = () => {
       const fetchUsername = async () => {
         try {
           const response = await axios.get(
-            `http://localhost:8080/api/${userType}s/id/${userId}`
+            `${API_URL}/api/${userType}s/id/${userId}`
           );
           setUsername(response.data.username);
         } catch (error) {

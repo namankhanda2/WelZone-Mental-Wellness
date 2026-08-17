@@ -11,6 +11,7 @@ import {
   FaComments,
   FaChartLine,
 } from "react-icons/fa";
+import API_URL from "../config";
 
 const convertArrayToDate = (dateArray) => {
   const [year, month, day, hour, minute] = dateArray;
@@ -29,7 +30,7 @@ const DashboardCounsellor = () => {
     const fetchUpcomingSessions = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8080/slots/booked/${counselorId}`
+          `${API_URL}/slots/booked/${counselorId}`
         );
         console.log(response);
 

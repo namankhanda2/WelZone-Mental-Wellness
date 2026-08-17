@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Header from "./Header";
 import { FaBookOpen, FaTag, FaCalendarAlt } from "react-icons/fa";
+import API_URL from "../config";
 
 const MyCourses = () => {
   const [courses, setCourses] = useState([]);
@@ -12,7 +13,7 @@ const MyCourses = () => {
     const fetchMyCourses = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8080/enrollments/${userId}`
+          `${API_URL}/enrollments/${userId}`
         );
         console.log(response.data);
         setCourses(response.data);

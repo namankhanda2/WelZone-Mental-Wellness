@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Header from "./Header";
 import { FaFeather, FaCalendarAlt } from "react-icons/fa";
+import API_URL from "../config";
 
 const convertArrayToDate = (dateArray) => {
   const [year, month, day, hour, minute] = dateArray;
@@ -17,7 +18,7 @@ const Blog = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const response = await axios.get("http://localhost:8080/blogs/all");
+        const response = await axios.get("${API_URL}/blogs/all");
         setBlogs(response.data);
       } catch {
         setError("Failed to fetch blogs. Please try again later.");

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { FaPencilAlt, FaFeather, FaCalendarAlt } from "react-icons/fa";
 import Header from "./Header";
+import API_URL from "../config";
 
 const BlogByCounselor = () => {
   const [blogs, setBlogs] = useState([]);
@@ -16,7 +17,7 @@ const BlogByCounselor = () => {
     const fetchBlogs = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8080/blogs/counselor/${counselorId}`
+          `${API_URL}/blogs/counselor/${counselorId}`
         );
         if (Array.isArray(response.data)) {
           setBlogs(response.data);
@@ -43,7 +44,7 @@ const BlogByCounselor = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8080/blogs/create",
+        "${API_URL}/blogs/create",
         newBlog
       );
       setFormMessage("Blog created successfully!");

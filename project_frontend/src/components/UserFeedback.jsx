@@ -9,6 +9,7 @@ import {
   FaStar,
   FaPaperPlane,
 } from "react-icons/fa";
+import API_URL from "../config";
 
 const convertArrayToDate = (dateArray) => {
   const [year, month, day, hour, minute] = dateArray;
@@ -23,7 +24,7 @@ const SessionDetails = () => {
     const fetchSessionDetails = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8080/slots/${sessionId}`
+          `${API_URL}/slots/${sessionId}`
         );
         setSessionDetails(response.data);
       } catch (err) {
@@ -92,7 +93,7 @@ const UserFeedback = () => {
   const fetchFeedbackList = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:8080/api/feedback/${sessionId}`
+        `${API_URL}/api/feedback/${sessionId}`
       );
       const data = response.data;
       data.reverse();
@@ -122,7 +123,7 @@ const UserFeedback = () => {
     setSuccess("");
 
     try {
-      await axios.post("http://localhost:8080/api/feedback", {
+      await axios.post("${API_URL}/api/feedback", {
         sessionId,
         rating,
         comments,

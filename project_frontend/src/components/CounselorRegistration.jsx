@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Header from "./Header";
 import { FaHeart } from "react-icons/fa";
+import API_URL from "../config";
 
 const CounselorRegistration = () => {
   const [formData, setFormData] = useState({
@@ -43,7 +44,7 @@ const CounselorRegistration = () => {
     };
 
     try {
-      await axios.post("http://localhost:8080/api/counselors", payload);
+      await axios.post("${API_URL}/api/counselors", payload);
       setMessage("Counselor registered successfully! Please login.");
 
       setTimeout(() => {

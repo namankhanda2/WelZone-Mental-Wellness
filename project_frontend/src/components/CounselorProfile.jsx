@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Header from "./Header";
+import API_URL from "../config";
 import {
   FaBirthdayCake,
   FaEnvelope,
@@ -28,7 +29,7 @@ const CounselorProfile = () => {
     const fetchCounselorProfile = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8080/api/counselors/id/${counselorId}`
+          `${API_URL}/api/counselors/id/${counselorId}`
         );
         setCounselor(response.data);
       } catch {

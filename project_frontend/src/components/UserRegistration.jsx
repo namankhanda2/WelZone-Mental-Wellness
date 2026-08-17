@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { FaHeart } from "react-icons/fa";
+import API_URL from "../config";
 
 const UserRegistration = () => {
   const [formData, setFormData] = useState({
@@ -40,7 +41,7 @@ const UserRegistration = () => {
     };
 
     try {
-      await axios.post("http://localhost:8080/api/users/register", payload);
+      await axios.post("${API_URL}/api/users/register", payload);
       setMessage("User registered successfully! Please login.");
 
       setTimeout(() => {

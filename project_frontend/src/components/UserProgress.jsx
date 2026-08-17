@@ -4,6 +4,7 @@ import { Line } from "react-chartjs-2";
 import "chart.js/auto";
 import Header from "./Header";
 import { FaChartLine, FaHeart } from "react-icons/fa";
+import API_URL from "../config";
 
 const convertArrayToDate = (dateArray) => {
   const [year, month, day, hour, minute] = dateArray;
@@ -27,7 +28,7 @@ const MoodProgress = () => {
     const fetchMoodData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8080/user-moods/${userId}`
+          `${API_URL}/user-moods/${userId}`
         );
         setMoodData(response.data);
       } catch (error) {

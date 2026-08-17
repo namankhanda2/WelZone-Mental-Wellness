@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Header from "./Header";
 import { FaBookOpen, FaCalendarAlt, FaTag, FaArrowRight } from "react-icons/fa";
+import API_URL from "../config";
 
 const convertArrayToDate = (dateArray) => {
   const [year, month, day, hour, minute] = dateArray;
@@ -21,7 +22,7 @@ const CoursesPage = () => {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const response = await axios.get("http://localhost:8080/courses");
+        const response = await axios.get("${API_URL}/courses");
         setCourses(response.data);
       } catch {
         setError("Failed to fetch available courses. Please try again later.");
@@ -31,7 +32,7 @@ const CoursesPage = () => {
     const fetchMyCourses = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8080/enrollments/${userId}`
+          `${API_URL}/enrollments/${userId}`
         );
         setMyCourses(response.data);
       } catch {
@@ -48,7 +49,7 @@ const CoursesPage = () => {
     const courseEnrollment = { userId, courseId };
     try {
       const response = await axios.post(
-        "http://localhost:8080/enrollments",
+        "${API_URL}/enrollments",
         courseEnrollment
       );
       alert(response.data);

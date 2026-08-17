@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import API_URL from "../config";
 
 const moodList = [
   { id: 1, name: "Happy", emoji: "😊", color: "hover:bg-leaf-light/60" },
@@ -18,7 +19,7 @@ const MoodTracker = () => {
 
   const handleMoodClick = async (mood) => {
     try {
-      await axios.post("http://localhost:8080/user-moods/set", null, {
+      await axios.post("${API_URL}/user-moods/set", null, {
         params: {
           userId: userId,
           moodId: mood.id,

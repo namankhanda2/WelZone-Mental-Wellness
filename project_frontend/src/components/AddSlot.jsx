@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Header from "./Header";
 import { FaCalendarPlus } from "react-icons/fa";
+import API_URL from "../config";
 
 const AddSlot = () => {
   const [startTime, setStartTime] = useState("");
@@ -34,7 +35,7 @@ const AddSlot = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8080/slots/create",
+        "${API_URL}/slots/create",
         slot
       );
       setMessage(response.data);

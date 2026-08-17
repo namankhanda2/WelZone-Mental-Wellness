@@ -8,6 +8,7 @@ import {
   FaComments,
   FaArrowRight,
 } from "react-icons/fa";
+import API_URL from "../config";
 
 const convertArrayToDate = (dateArray) => {
   const [year, month, day, hour, minute] = dateArray;
@@ -26,7 +27,7 @@ const CounselorSessions = () => {
     const fetchUpcomingSessions = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8080/slots/booked/${counselorId}`
+          `${API_URL}/slots/booked/${counselorId}`
         );
 
         if (Array.isArray(response.data)) {
@@ -45,7 +46,7 @@ const CounselorSessions = () => {
     const fetchAvailableSlots = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8080/slots/available/${counselorId}`
+          `${API_URL}/slots/available/${counselorId}`
         );
 
         if (Array.isArray(response.data)) {

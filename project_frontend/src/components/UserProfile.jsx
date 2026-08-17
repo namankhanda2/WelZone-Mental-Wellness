@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Header from "./Header";
+import API_URL from "../config";
 import {
   FaBirthdayCake,
   FaCalendarCheck,
@@ -26,7 +27,7 @@ const UserProfile = () => {
     const fetchUserProfile = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8080/api/users/id/${userId}`
+          `${API_URL}/api/users/id/${userId}`
         );
         setUser(response.data);
       } catch {

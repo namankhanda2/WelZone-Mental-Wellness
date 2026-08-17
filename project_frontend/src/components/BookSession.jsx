@@ -11,6 +11,7 @@ import {
   FaClock,
   FaArrowRight,
 } from "react-icons/fa";
+import API_URL from "../config";
 
 const convertArrayToDate = (dateArray) => {
   if (!Array.isArray(dateArray) || dateArray.length < 5) {
@@ -32,7 +33,7 @@ const BookSession = () => {
       const userId = localStorage.getItem("Id");
       try {
         const availableSlotsResponse = await axios.get(
-          "http://localhost:8080/slots/available"
+          "${API_URL}/slots/available"
         );
         setSlots(
           Array.isArray(availableSlotsResponse.data)
@@ -41,7 +42,7 @@ const BookSession = () => {
         );
 
         const bookedSlotsResponse = await axios.get(
-          `http://localhost:8080/slots/bookedbyme/${userId}`
+          `${API_URL}/slots/bookedbyme/${userId}`
         );
         setBookedSlots(
           Array.isArray(bookedSlotsResponse.data)
@@ -62,7 +63,7 @@ const BookSession = () => {
     const userId = localStorage.getItem("Id");
     try {
       const response = await axios.post(
-        `http://localhost:8080/slots/book/${slotId}/user/${userId}`
+        `${API_URL}/slots/book/${slotId}/user/${userId}`
       );
       if (response.status === 200) {
         setSlots(slots.filter((slot) => slot.slotId !== slotId));

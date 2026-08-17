@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { FaUser, FaLock, FaUsers, FaUserTie, FaHeart } from "react-icons/fa";
+import API_URL from "../config";
 
 const Login = () => {
   const [userType, setUserType] = useState("");
@@ -20,7 +21,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const baseUrl = "http://localhost:8080";
+    const baseUrl = API_URL;
     const endpoint =
       userType === "user"
         ? `${baseUrl}/api/users/login`
