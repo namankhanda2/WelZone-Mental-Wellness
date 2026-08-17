@@ -5,7 +5,7 @@
   },
   "deploy": {
     "startCommand": "java -jar app.jar",
-    "healthcheckPath": "/api/users/login",
+    "healthcheckPath": "/courses",
     "healthcheckTimeout": 300,
     "restartPolicyType": "ON_FAILURE",
     "restartPolicyMaxRetries": 10
