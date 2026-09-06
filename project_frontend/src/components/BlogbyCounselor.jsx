@@ -44,7 +44,7 @@ const BlogByCounselor = () => {
 
     try {
       const response = await axios.post(
-        "${API_URL}/blogs/create",
+        `${API_URL}/blogs/create`,
         newBlog
       );
       setFormMessage("Blog created successfully!");

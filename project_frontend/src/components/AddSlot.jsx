@@ -35,7 +35,7 @@ const AddSlot = () => {
 
     try {
       const response = await axios.post(
-        "${API_URL}/slots/create",
+        `${API_URL}/slots/create`,
         slot
       );
       setMessage(response.data);

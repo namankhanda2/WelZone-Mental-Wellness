@@ -123,7 +123,7 @@ const UserFeedback = () => {
     setSuccess("");
 
     try {
-      await axios.post("${API_URL}/api/feedback", {
+      await axios.post(`${API_URL}/api/feedback`, {
         sessionId,
         rating,
         comments,

@@ -19,7 +19,7 @@ const MoodTracker = () => {
 
   const handleMoodClick = async (mood) => {
     try {
-      await axios.post("${API_URL}/user-moods/set", null, {
+      await axios.post(`${API_URL}/user-moods/set`, null, {
         params: {
           userId: userId,
           moodId: mood.id,

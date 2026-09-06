@@ -44,7 +44,7 @@ const CounselorRegistration = () => {
     };
 
     try {
-      await axios.post("${API_URL}/api/counselors", payload);
+      await axios.post(`${API_URL}/api/counselors`, payload);
       setMessage("Counselor registered successfully! Please login.");
 
       setTimeout(() => {

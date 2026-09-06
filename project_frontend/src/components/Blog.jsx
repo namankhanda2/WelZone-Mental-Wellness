@@ -18,7 +18,7 @@ const Blog = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const response = await axios.get("${API_URL}/blogs/all");
+        const response = await axios.get(`${API_URL}/blogs/all`);
         setBlogs(response.data);
       } catch {
         setError("Failed to fetch blogs. Please try again later.");

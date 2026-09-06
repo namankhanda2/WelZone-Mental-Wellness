@@ -22,7 +22,7 @@ const CoursesPage = () => {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const response = await axios.get("${API_URL}/courses");
+        const response = await axios.get(`${API_URL}/courses`);
         setCourses(response.data);
       } catch {
         setError("Failed to fetch available courses. Please try again later.");
@@ -49,7 +49,7 @@ const CoursesPage = () => {
     const courseEnrollment = { userId, courseId };
     try {
       const response = await axios.post(
-        "${API_URL}/enrollments",
+        `${API_URL}/enrollments`,
         courseEnrollment
       );
       alert(response.data);

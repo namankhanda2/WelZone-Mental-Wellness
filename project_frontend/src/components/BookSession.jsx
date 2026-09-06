@@ -33,7 +33,7 @@ const BookSession = () => {
       const userId = localStorage.getItem("Id");
       try {
         const availableSlotsResponse = await axios.get(
-          "${API_URL}/slots/available"
+          `${API_URL}/slots/available`
         );
         setSlots(
           Array.isArray(availableSlotsResponse.data)
