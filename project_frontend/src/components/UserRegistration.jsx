@@ -41,7 +41,7 @@ const UserRegistration = () => {
     };
 
     try {
-      await axios.post('${API_URL}/api/users/register', payload);
+      await axios.post(`${API_URL}/api/users/register`, payload);
       setMessage("User registered successfully! Please login.");
 
       setTimeout(() => {
